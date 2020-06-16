@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Domino from './Domino';
 import * as serviceWorker from './serviceWorker';
+import ApplicationViews from './components/ApplicationViews';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Router>
+    <Domino />
+    <ApplicationViews />
+  </Router>,
   document.getElementById('root')
 );
 
