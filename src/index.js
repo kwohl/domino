@@ -3,14 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Domino from './Domino';
 import * as serviceWorker from './serviceWorker';
-import ApplicationViews from './components/ApplicationViews';
-import { BrowserRouter as Router } from 'react-router-dom';
 
 ReactDOM.render(
-  <Router>
+  <React.StrictMode>
     <Domino />
-    <ApplicationViews />
-  </Router>,
+  </React.StrictMode>,
   document.getElementById('root')
 );
 

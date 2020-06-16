@@ -26,9 +26,9 @@ const Login = (props) => {
   };
 
   return (
-    <div>
+    <div className="pageContent" id="login">
       <form onSubmit={handleLogin}>
-        <h1>Log In to Domino!</h1>
+      <h1>Log In to Domino!</h1>
         <fieldset>
           <label htmlFor="username"> Username </label>
           <input
