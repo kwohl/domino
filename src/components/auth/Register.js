@@ -24,7 +24,7 @@ const Register = (props) => {
   };
 
   return (
-    <div>
+    <div className="pageContent" id="register">
       <form onSubmit={handleRegister}>
         <h1>
           Register to get started with Domino!

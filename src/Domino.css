@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.pageContent {
+  margin-left: 215px;
+  margin-top: 50px;
+  position: absolute;
+}
+
+#login {
+  width: 50%;
+}
+
+#register {
+  width: 50%;
+}
