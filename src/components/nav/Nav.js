@@ -13,9 +13,9 @@ const NavBar = (props) => {
             {isAuthenticated() ? (
             <>
             <Link to="/">Add Task</Link>
-            <Link to="/list">Lists</Link>
+            <Link to="/lists">Lists</Link>
             <Link to="/">Settings</Link>
-            <Link onClick={() => {logout();}} to="/">Log Out</Link>
+            <Link onClick={() => {logout()}} to="/">Log Out</Link>
             </>
             ) : (
             <>
