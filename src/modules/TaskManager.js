@@ -8,5 +8,15 @@ export default {
   getAllTasks() {
       return fetch(`${baseUrl}/tasks`)
         .then(response => response.json())
-  }
+  },
+  getTasksByUser(list_id) {
+    return fetch(`${baseUrl}/tasks?list=${list_id}`, {
+        "method": "GET",
+        "headers": {
+            "Accept": "application/json",
+            "Authorization": `Token ${sessionStorage.getItem("domino-token")}`
+        }
+    })
+    .then(response => response.json())
+  },
 }
