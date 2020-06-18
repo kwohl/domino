@@ -19,4 +19,14 @@ export default {
     })
     .then(response => response.json())
   },
+  addTask(newTask) {
+    return fetch(`${baseUrl}/tasks`, {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            Authorization: `Token ${sessionStorage.getItem("domino-token")}`,
+        },
+      body: newTask
+    }).then(response => response.json())
+  },
 }

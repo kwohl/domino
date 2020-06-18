@@ -18,7 +18,6 @@ const ListDetail = (props) => {
       TaskManager.getTasksByUser(props.listId)
         .then(response => {
           setTasks(response);
-          console.log(response)
         })
     };
 
@@ -30,11 +29,14 @@ const ListDetail = (props) => {
     return (
       <div className="pageContent">
           <h3>{list.name}</h3>
-          <p>{list.description}</p>
+          <p><strong>{list.description}</strong></p>
           <div>
             {tasks.map(task => (
               <p key={task.id}>{task.name}</p>
             ))}
+          </div>
+          <div>
+              <button onClick={() => props.history.push("/addtask")}>Add New Task</button>
           </div>
       </div>
     );

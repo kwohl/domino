@@ -12,7 +12,7 @@ const NavBar = (props) => {
             <Link to="/">Home</Link>
             {isAuthenticated() ? (
             <>
-            <Link to="/">Add Task</Link>
+            <Link to="/addtask">Add Task</Link>
             <Link to="/lists">Lists</Link>
             <Link to="/">Settings</Link>
             <Link onClick={() => {logout()}} to="/">Log Out</Link>
