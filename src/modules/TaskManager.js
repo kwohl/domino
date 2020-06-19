@@ -38,4 +38,14 @@ export default {
         }
     })
   },
+  updateTask(updatedTask) {
+    return fetch(`${baseUrl}/tasks/${updatedTask.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Token ${sessionStorage.getItem("domino-token")}`,
+      },
+      "body": JSON.stringify(updatedTask),
+    });
+  }
 }

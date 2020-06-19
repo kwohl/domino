@@ -42,6 +42,7 @@ const ListDetail = (props) => {
               <div key={task.id}>  
               <p>{task.name}</p>
               <button onClick={() => deleteTask(task.id)}>Delete</button>
+              <button onClick={() => props.history.push(`/task/${task.id}`)}>Edit</button>
               </div>
             ))}
           </div>
