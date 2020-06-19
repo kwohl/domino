@@ -30,4 +30,12 @@ export default {
         "body": JSON.stringify(newTask)
     }).then(response => response.json())
   },
+  deleteTask(taskId) {
+    return fetch(`${baseUrl}/tasks/${taskId}`, {
+        "method": "DELETE",
+        "headers": {
+            "Authorization": `Token ${sessionStorage.getItem("domino-token")}`
+        }
+    })
+  },
 }
