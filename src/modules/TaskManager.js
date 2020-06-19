@@ -21,12 +21,13 @@ export default {
   },
   addTask(newTask) {
     return fetch(`${baseUrl}/tasks`, {
-        method: "POST",
-        headers: {
-            Accept: "application/json",
-            Authorization: `Token ${sessionStorage.getItem("domino-token")}`,
+        "method": "POST",
+        "headers": {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "Authorization": `Token ${sessionStorage.getItem("domino-token")}`,
         },
-      body: newTask
+        "body": JSON.stringify(newTask)
     }).then(response => response.json())
   },
 }
