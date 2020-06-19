@@ -21,6 +21,13 @@ const ListDetail = (props) => {
         })
     };
 
+    const deleteTask = (taskId) => {
+        if (window.confirm("Would you like to remove this task from your list?")) {
+            TaskManager.deleteTask(taskId)
+                .then(getTasks)
+        }
+    }
+
     useEffect(() => {
       getList()
       getTasks()
@@ -32,7 +39,10 @@ const ListDetail = (props) => {
           <p><strong>{list.description}</strong></p>
           <div>
             {tasks.map(task => (
-              <p key={task.id}>{task.name}</p>
+              <div key={task.id}>  
+              <p>{task.name}</p>
+              <button onClick={() => deleteTask(task.id)}>Delete</button>
+              </div>
             ))}
           </div>
           <div>
