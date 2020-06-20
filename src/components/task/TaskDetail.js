@@ -30,9 +30,14 @@ const TaskDetail = (props) => {
 
     const updateTask = (evt) => {
         evt.preventDefault();
+        let description = task.description
+        if(task.description === "") {
+          description = null
+        }
+
         const updatedTask = {
           "name": task.name,
-          "description": task.description,
+          "description": description,
           "task_list_id": Number(listId)
         } 
 
@@ -67,10 +72,9 @@ const TaskDetail = (props) => {
           <label htmlFor="description">Description:</label>
           <input
             type="text"
-            required
             onChange={handleFieldChange}
             id="description"
-            value={task.description}
+            value={task.description === null ? ("") : (task.description)}
           />
         </fieldset>
         <fieldset>
