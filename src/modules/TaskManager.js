@@ -38,10 +38,10 @@ export default {
         }
     })
   },
-  updateTask(updatedTask) {
-    return fetch(`${baseUrl}/tasks/${updatedTask.id}`, {
-      method: "PUT",
-      headers: {
+  updateTask(updatedTask, taskId) {
+    return fetch(`${baseUrl}/tasks/${taskId}`, {
+      "method": "PUT",
+      "headers": {
         "Content-Type": "application/json",
         "Authorization": `Token ${sessionStorage.getItem("domino-token")}`,
       },

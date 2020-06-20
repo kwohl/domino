@@ -3,26 +3,41 @@ import TaskManager from "../../modules/TaskManager";
 import ListManager from "../../modules/ListManager";
 
 const TaskDetail = (props) => {
-    const [task, setTask] = useState({ id: "", name: "", description: "", taskListId: "" })
+    const [task, setTask] = useState({ id: "", name: "", description: "", task_list: "" })
     const [lists, setLists] = useState([])
+    const [taskList, setTaskList] = useState({})
+    const [listId, setListId] = useState(0)
 
     const getTask = () => {
         return TaskManager.getTask(props.taskId)
             .then(response => {
                 setTask(response)
+                setTaskList(response.task_list)
+                const listIdNumber = parseInt(response.task_list.url.split("/")[4])
+                setListId(listIdNumber)
+                console.log(response)
             })
     }
 
     const handleFieldChange = (evt) => {
         const stateToChange = { ...task };
         stateToChange[evt.target.id] = evt.target.value;
+        if(evt.target.id === "task_list") {
+          setListId(evt.target.value)
+        }
         setTask(stateToChange);
       };
 
     const updateTask = (evt) => {
-    evt.preventDefault();
+        evt.preventDefault();
+        const updatedTask = {
+          "name": task.name,
+          "description": task.description,
+          "task_list_id": listId
+        } 
 
-    TaskManager.updateTask(task).then(() => props.history.push("/"));
+        console.log(updatedTask)
+        TaskManager.updateTask(updatedTask, parseInt(task.id)).then(() => props.history.push(`/list/${listId}`));
     };
 
     useEffect(() => {
@@ -31,6 +46,7 @@ const TaskDetail = (props) => {
         .then(response => {
           setLists(response);
         })
+
       }, [])
 
     return (
@@ -58,11 +74,12 @@ const TaskDetail = (props) => {
           />
         </fieldset>
         <fieldset>
-            <label htmlFor="taskListId"> List </label>
+            <label htmlFor="task_list"> List </label>
             <select
-            id="taskListId"
-            value={task.taskListId}
+            id="task_list"
+            defaultValue={task.listId}
             onChange={handleFieldChange}>
+            <option value={listId}>{taskList.name}</option>  
             {lists.map(list =>
                 <option key={list.id} value={list.id}>
                 {list.name}
