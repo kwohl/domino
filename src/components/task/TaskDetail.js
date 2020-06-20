@@ -33,11 +33,11 @@ const TaskDetail = (props) => {
         const updatedTask = {
           "name": task.name,
           "description": task.description,
-          "task_list_id": listId
+          "task_list_id": Number(listId)
         } 
 
         console.log(updatedTask)
-        TaskManager.updateTask(updatedTask, parseInt(task.id)).then(() => props.history.push(`/list/${listId}`));
+        TaskManager.updateTask(updatedTask, parseInt(task.id)).then(() => props.history.push(`/list/${parseInt(listId)}`));
     };
 
     useEffect(() => {
