@@ -6,6 +6,7 @@ import Register from "./auth/Register";
 import ListDetail from "./list/ListDetail";
 import List from "./list/List";
 import TaskForm from "./task/TaskForm";
+import TaskDetail from "./task/TaskDetail";
 
 const ApplicationViews = (props) => {
     // const { isAuthenticated } = useSimpleAuth()
@@ -26,6 +27,9 @@ const ApplicationViews = (props) => {
         }}/>
         <Route path="/addtask" render={(props) => {
             return <TaskForm { ...props } />
+        }}/>
+        <Route path="/task/:taskId(\d+)" render={(props) => {
+            return <TaskDetail taskId={parseInt(props.match.params.taskId)} { ...props } />
         }}/>
         </>
     )
