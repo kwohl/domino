@@ -8,6 +8,7 @@ import List from "./list/List";
 import TaskForm from "./task/TaskForm";
 import TaskDetail from "./task/TaskDetail";
 import StepForm from "./step/StepForm";
+import StepEditForm from "./step/StepEdit";
 
 const ApplicationViews = (props) => {
     // const { isAuthenticated } = useSimpleAuth()
@@ -34,6 +35,9 @@ const ApplicationViews = (props) => {
         }}/>
         <Route path="/addstep/:taskId(\d+)" render={(props) => {
             return <StepForm taskId={parseInt(props.match.params.taskId)} { ...props } />
+        }}/>
+        <Route path="/step/:stepId(\d+)" render={(props) => {
+            return <StepEditForm stepId={parseInt(props.match.params.stepId)} { ...props } />
         }}/>
         </>
     )

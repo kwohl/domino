@@ -1,14 +1,21 @@
 import React, { useState, useEffect } from "react";
 import TaskStepManager from "../../modules/TaskStepManager";
+import StepManager from "../../modules/StepManager";
 
 const TaskCard = (props) => {
     const [taskSteps, setTaskSteps] = useState([])
+    const [isEditing, setIsEditing] = useState(false)
+
     const quantity = taskSteps.length
+
 
     useEffect(() => {
         TaskStepManager.getTaskStepsByTask(props.task.id)
             .then(response => setTaskSteps(response))
         }, [props.task])
+
+
+    
     
     if (taskSteps.length != 0) {
         return (
@@ -21,6 +28,7 @@ const TaskCard = (props) => {
                     <div key={taskStep.id}>
                     <li>{taskStep.step.name}</li>
                     <button onClick={() => props.deleteStep(taskStep.step.url.split("/")[4])}>delete step</button>
+                    <button onClick={() => props.history.push(`/step/${taskStep.step.url.split("/")[4]}`)}>Edit</button>
                     </div>
                 ))}
             </ul>
