@@ -50,3 +50,13 @@
 #register {
   width: 50%;
 }
+
+.taskCard {
+  border: 1px solid #282c34;
+  padding: 5px;
+  margin: 10px;
+}
+
+.taskCard button {
+  margin-right: 5px;
+}

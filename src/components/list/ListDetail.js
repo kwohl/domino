@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ListManager from "../../modules/ListManager";
 import TaskManager from "../../modules/TaskManager";
+import TaskCard from "../task/TaskCard";
 
 const ListDetail = (props) => {
     const [list, setList] = useState({ name: "", description: "" })
@@ -39,11 +40,12 @@ const ListDetail = (props) => {
           <p><strong>{list.description}</strong></p>
           <div>
             {tasks.map(task => (
-              <div key={task.id}>  
-              <p>{task.name}</p>
-              <button onClick={() => deleteTask(task.id)}>Delete</button>
-              <button onClick={() => props.history.push(`/task/${task.id}`)}>Edit</button>
-              </div>
+              <TaskCard
+                key={task.id}
+                task={task}
+                deleteTask={deleteTask}
+                {...props}
+              />
             ))}
           </div>
           <div>
