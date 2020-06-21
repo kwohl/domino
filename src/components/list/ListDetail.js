@@ -43,6 +43,7 @@ const ListDetail = (props) => {
               <TaskCard
                 key={task.id}
                 task={task}
+                listId={list.id}
                 deleteTask={deleteTask}
                 {...props}
               />
