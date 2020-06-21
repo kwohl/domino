@@ -70,7 +70,7 @@ const TaskDetail = (props) => {
         </fieldset>
         <fieldset>
           <label htmlFor="description">Description:</label>
-          <input
+          <textarea
             type="text"
             onChange={handleFieldChange}
             id="description"
