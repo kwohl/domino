@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ListManager from "../../modules/ListManager";
 import TaskManager from "../../modules/TaskManager";
 import TaskCard from "../task/TaskCard";
+import StepManager from "../../modules/StepManager";
 
 const ListDetail = (props) => {
     const [list, setList] = useState({ name: "", description: "" })
@@ -29,6 +30,14 @@ const ListDetail = (props) => {
         }
     }
 
+    const deleteStep = (stepId) => {
+      if (window.confirm("Would you like to remove this step?")) {
+        StepManager.deleteStep(stepId)
+          .then(getTasks)
+          console.log("deleted")
+      }
+    }
+
     useEffect(() => {
       getList()
       getTasks()
@@ -44,6 +53,7 @@ const ListDetail = (props) => {
                 key={task.id}
                 task={task}
                 listId={list.id}
+                deleteStep={deleteStep}
                 deleteTask={deleteTask}
                 {...props}
               />
