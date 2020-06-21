@@ -13,12 +13,12 @@ const TaskCard = (props) => {
     if (steps.length != 0) {
         return (
             <div className="taskCard">  
-            <p>{props.task.name}</p>
+            <p><strong>{props.task.name}</strong></p>
             <p>{props.task.discription}</p>
             <p>There are {quantity} steps in this task</p>
             <ul>
                 {steps.map(step => (
-                    <li>{step.step.name}</li>
+                    <li key={step.id}>{step.step.name}</li>
                 ))}
             </ul>
             <button onClick={() => props.deleteTask(props.task.id)}>Delete</button>
@@ -27,8 +27,8 @@ const TaskCard = (props) => {
         );
     } else {
         return (
-            <div>  
-            <p>{props.task.name}</p>
+            <div className="taskCard">  
+            <p><strong>{props.task.name}</strong></p>
             <p>{props.task.discription}</p>
             <button onClick={() => props.deleteTask(props.task.id)}>Delete</button>
             <button onClick={() => props.history.push(`/task/${props.task.id}`)}>Edit</button>

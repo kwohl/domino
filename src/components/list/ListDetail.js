@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ListManager from "../../modules/ListManager";
 import TaskManager from "../../modules/TaskManager";
-import TaskStepManager from "../../modules/TaskStepManager";
 import TaskCard from "../task/TaskCard";
 
 const ListDetail = (props) => {
@@ -22,15 +21,6 @@ const ListDetail = (props) => {
           setTasks(response);
         })
     };
-
-    const taskStepTest = () => {
-      const stepsArray = []
-      tasks.forEach(task => {
-        TaskStepManager.getTaskStepsByTask(task.id)
-          .then(taskSteps => taskSteps.forEach(taskStep => stepsArray.push([task.id, taskStep.step])))
-      })
-      console.log(stepsArray)
-    }
 
     const deleteTask = (taskId) => {
         if (window.confirm("Would you like to remove this task from your list?")) {
@@ -54,7 +44,6 @@ const ListDetail = (props) => {
                 key={task.id}
                 task={task}
                 deleteTask={deleteTask}
-                taskStepTest={taskStepTest}
                 {...props}
               />
             ))}
