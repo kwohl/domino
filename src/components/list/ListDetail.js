@@ -32,31 +32,6 @@ const ListDetail = (props) => {
       console.log(stepsArray)
     }
 
-  
-    // const getTaskSteps = (taskId) => {
-    //   TaskStepManager.getTaskStepsByTask(taskId)
-    //     .then(response => response.map(taskStep => {
-    //       <p>{taskStep.step.name}</p>
-    //     }))
-    // }
-
-    // {TaskStepManager.getTaskStepsByTask(task.id)
-    //   .then(response => response.map(taskStep => {
-    //     <li>{taskStep.step.name}</li>
-    //   }))
-    // }
-    // const stepsArray = tasks.reduce(task => {
-    //   if (!stepsArray[task.id]) {
-    //     stepsArray[task.id] = []
-    //   }
-    //   TaskStepManager.getTaskStepsByTask(task.id)
-    //     .then(taskSteps => taskSteps.forEach(taskStep => stepsArray[task.id].push(taskStep.step)))
-    //   return stepsArray
-    // }, {})
-    // console.log(stepsArray)
-  
-
-
     const deleteTask = (taskId) => {
         if (window.confirm("Would you like to remove this task from your list?")) {
             TaskManager.deleteTask(taskId)
@@ -92,23 +67,3 @@ const ListDetail = (props) => {
   };
   
   export default ListDetail;
-
-  // return (
-  //   <div className="pageContent">
-  //       <h3>{list.name}</h3>
-  //       <p><strong>{list.description}</strong></p>
-  //       <div>
-  //         {tasks.map(task => (
-  //           <div key={task.id}>  
-  //           <p onClick={() => taskStepTest()}>{task.name}</p>
-  //           <p>{task.discription}</p>
-  //           <button onClick={() => deleteTask(task.id)}>Delete</button>
-  //           <button onClick={() => props.history.push(`/task/${task.id}`)}>Edit</button>
-  //           </div>
-  //         ))}
-  //       </div>
-  //       <div>
-  //           <button onClick={() => props.history.push("/addtask")}>Add New Task</button>
-  //       </div>
-  //   </div>
-  // );
