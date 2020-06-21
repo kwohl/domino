@@ -2,23 +2,26 @@ import React, { useState, useEffect } from "react";
 import TaskStepManager from "../../modules/TaskStepManager";
 
 const TaskCard = (props) => {
-    const [steps, setSteps] = useState([])
-    const quantity = steps.length
+    const [taskSteps, setTaskSteps] = useState([])
+    const quantity = taskSteps.length
 
     useEffect(() => {
         TaskStepManager.getTaskStepsByTask(props.task.id)
-            .then(response => setSteps(response))
-        }, [])
+            .then(response => setTaskSteps(response))
+        }, [props.task])
     
-    if (steps.length != 0) {
+    if (taskSteps.length != 0) {
         return (
             <div className="taskCard">  
             <p><strong>{props.task.name}</strong></p>
             <p>{props.task.discription}</p>
             <p>There are {quantity} steps in this task</p>
             <ul>
-                {steps.map(step => (
-                    <li key={step.id}>{step.step.name}</li>
+                {taskSteps.map(taskStep => (
+                    <div key={taskStep.id}>
+                    <li>{taskStep.step.name}</li>
+                    <button onClick={() => props.deleteStep(taskStep.step.url.split("/")[4])}>delete step</button>
+                    </div>
                 ))}
             </ul>
             <button onClick={() => props.history.push(`/addstep/${props.task.id}`)}>Add Steps</button>
