@@ -21,6 +21,7 @@ const TaskCard = (props) => {
                     <li key={step.id}>{step.step.name}</li>
                 ))}
             </ul>
+            <button onClick={() => props.history.push(`/addstep/${props.task.id}`)}>Add Steps</button>
             <button onClick={() => props.deleteTask(props.task.id)}>Delete</button>
             <button onClick={() => props.history.push(`/task/${props.task.id}`)}>Edit</button>
             </div>
@@ -30,6 +31,7 @@ const TaskCard = (props) => {
             <div className="taskCard">  
             <p><strong>{props.task.name}</strong></p>
             <p>{props.task.discription}</p>
+            <button onClick={() => props.history.push(`/addstep/${props.task.id}`)}>Add Steps</button>
             <button onClick={() => props.deleteTask(props.task.id)}>Delete</button>
             <button onClick={() => props.history.push(`/task/${props.task.id}`)}>Edit</button>
             </div>

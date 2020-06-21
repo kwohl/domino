@@ -10,5 +10,16 @@ export default {
         }
     })
     .then(response => response.json())
+  },
+  addTaskStep(newTaskStep) {
+    return fetch(`${baseUrl}/tasksteps`, {
+        "method": "POST",
+        "headers": {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "Authorization": `Token ${sessionStorage.getItem("domino-token")}`,
+        },
+        "body": JSON.stringify(newTaskStep)
+    }).then(response => response.json())
   }
 }
