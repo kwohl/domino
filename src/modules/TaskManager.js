@@ -57,5 +57,15 @@ export default {
       },
       "body": JSON.stringify(updatedTask),
     });
+  },
+  completeTask(updatedTask, taskId) {
+    return fetch(`${baseUrl}/tasks/${taskId}?complete`, {
+      "method": "PUT",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": `Token ${sessionStorage.getItem("domino-token")}`,
+      },
+      "body": JSON.stringify(updatedTask),
+    });
   }
 }
