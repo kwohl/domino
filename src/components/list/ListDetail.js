@@ -43,6 +43,7 @@ const ListDetail = (props) => {
         .then(getTasks)
     }
 
+
     useEffect(() => {
       getList()
       getTasks()
