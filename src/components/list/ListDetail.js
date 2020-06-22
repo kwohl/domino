@@ -17,7 +17,7 @@ const ListDetail = (props) => {
     };
 
     const getTasks = () => {
-      TaskManager.getTasksByUser(props.listId)
+      TaskManager.getTasksByList(props.listId)
         .then(response => {
           setTasks(response);
         })
@@ -34,7 +34,6 @@ const ListDetail = (props) => {
       if (window.confirm("Would you like to remove this step?")) {
         StepManager.deleteStep(stepId)
           .then(getTasks)
-          console.log("deleted")
       }
     }
 
