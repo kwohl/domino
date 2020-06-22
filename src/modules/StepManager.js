@@ -37,5 +37,15 @@ export default {
       },
       "body": JSON.stringify(updatedStep),
     });
+  },
+  completeStep(updatedStep, stepId) {
+    return fetch(`${baseUrl}/steps/${stepId}?complete`, {
+      "method": "PUT",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": `Token ${sessionStorage.getItem("domino-token")}`,
+      },
+      "body": JSON.stringify(updatedStep),
+    });
   }
 }

@@ -4,8 +4,6 @@ import StepManager from "../../modules/StepManager";
 
 const TaskCard = (props) => {
     const [taskSteps, setTaskSteps] = useState([])
-    const [isEditing, setIsEditing] = useState(false)
-
     const quantity = taskSteps.length
 
 
@@ -17,6 +15,7 @@ const TaskCard = (props) => {
 
     
     
+    
     if (taskSteps.length != 0) {
         return (
             <div className="taskCard">  
@@ -26,7 +25,11 @@ const TaskCard = (props) => {
             <ul>
                 {taskSteps.map(taskStep => (
                     <div key={taskStep.id}>
-                    <li>{taskStep.step.name}</li>
+                    <li>
+                        {taskStep.step.name}
+                        <span style={{ display: taskStep.step.is_complete ? "" : "none" }}>: Complete!</span> 
+                    </li>
+                    <button onClick={() => props.completeStep(parseInt(taskStep.step.url.split("/")[4]))}>Complete</button>
                     <button onClick={() => props.deleteStep(taskStep.step.url.split("/")[4])}>delete step</button>
                     <button onClick={() => props.history.push(`/step/${taskStep.step.url.split("/")[4]}`)}>Edit</button>
                     </div>
