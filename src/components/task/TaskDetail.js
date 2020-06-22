@@ -15,7 +15,6 @@ const TaskDetail = (props) => {
                 setTaskList(response.task_list)
                 const listIdNumber = parseInt(response.task_list.url.split("/")[4])
                 setListId(listIdNumber)
-                console.log(response)
             })
     }
 
@@ -41,8 +40,8 @@ const TaskDetail = (props) => {
           "task_list_id": Number(listId)
         } 
 
-        console.log(updatedTask)
-        TaskManager.updateTask(updatedTask, parseInt(task.id)).then(() => props.history.push(`/list/${parseInt(listId)}`));
+        TaskManager.updateTask(updatedTask, parseInt(task.id))
+          .then(() => props.history.push(`/list/${parseInt(listId)}`));
     };
 
     useEffect(() => {

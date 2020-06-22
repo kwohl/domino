@@ -51,14 +51,12 @@ const StepEditForm = (props) => {
     };
 
     const addTaskStep = () => {
-      console.log(step.id)
-      console.log(taskIdObj.taskId)
       const newTaskStepObj = {
         "step_id": step.id,
         "task_id": parseInt(taskIdObj.taskId)
       }
       TaskStepManager.addTaskStep(newTaskStepObj)
-        .then(resp => console.log(resp))
+        .then(() => props.history.push(`/lists`))
     }
 
     useEffect(() => {

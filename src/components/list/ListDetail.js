@@ -34,7 +34,6 @@ const ListDetail = (props) => {
       if (window.confirm("Would you like to remove this step?")) {
         StepManager.deleteStep(stepId)
           .then(getTasks)
-          console.log("deleted")
       }
     }
 
