@@ -17,7 +17,7 @@ const ListDetail = (props) => {
     };
 
     const getTasks = () => {
-      TaskManager.getTasksByUser(props.listId)
+      TaskManager.getTasksByList(props.listId)
         .then(response => {
           setTasks(response);
         })
