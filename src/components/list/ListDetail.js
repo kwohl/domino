@@ -37,6 +37,12 @@ const ListDetail = (props) => {
       }
     }
 
+    const completeStep = (stepId) => {
+      const stepObj = { "is_complete": true}
+      StepManager.completeStep(stepObj, stepId)
+        .then(getTasks)
+    }
+
     useEffect(() => {
       getList()
       getTasks()
@@ -54,6 +60,7 @@ const ListDetail = (props) => {
                 listId={list.id}
                 deleteStep={deleteStep}
                 deleteTask={deleteTask}
+                completeStep={completeStep}
                 {...props}
               />
             ))}
