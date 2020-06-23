@@ -41,6 +41,7 @@
   margin-left: 215px;
   margin-top: 50px;
   position: absolute;
+  height: 75%;
 }
 
 #login {
@@ -59,4 +60,18 @@
 
 .taskCard button {
   margin-right: 5px;
+}
+
+.flexRow {
+  display: flex;
+  height: 100%;
+  margin-bottom: 10px;
+}
+
+.kanban {
+  background-color: gainsboro;
+  height: 100%;
+  margin-right: 10px;
+  border-radius: 1%;
+  width: 350px;
 }

@@ -7,7 +7,7 @@ import StepManager from "../../modules/StepManager";
 const ListDetail = (props) => {
     const [list, setList] = useState({ name: "", description: "" })
     const [tasks, setTasks] = useState([])
-
+    const [finishedTasks, setFinishedTasks] = useState([])
 
     const getList = () => {
       ListManager.getList(props.listId)
@@ -17,9 +17,20 @@ const ListDetail = (props) => {
     };
 
     const getTasks = () => {
+      const completeTasks = []
+      const incompleteTasks = []
+
       TaskManager.getTasksByList(props.listId)
         .then(response => {
-          setTasks(response);
+          response.map(task => {
+            if (task.is_complete === false) {
+              incompleteTasks.push(task)
+            } else {
+              completeTasks.push(task)
+            }
+          })
+          setTasks(incompleteTasks)
+          setFinishedTasks(completeTasks)
         })
     };
 
@@ -51,10 +62,29 @@ const ListDetail = (props) => {
     
     return (
       <div className="pageContent">
-          <h3>{list.name}</h3>
-          <p><strong>{list.description}</strong></p>
+        <h3>{list.name}</h3>
+        <p><strong>{list.description}</strong></p>
+        <div className="flexRow">
+        <div className="kanban">
           <div>
             {tasks.map(task => (
+              
+              <TaskCard
+                key={task.id}
+                task={task}
+                listId={list.id}
+                deleteStep={deleteStep}
+                deleteTask={deleteTask}
+                completeStep={completeStep}
+                getTasks={getTasks}
+                {...props}
+              />
+            ))}
+          </div>
+        </div>
+        <div className="kanban">
+          <div>
+            {finishedTasks.map(task => (
               <TaskCard
                 key={task.id}
                 task={task}
@@ -66,9 +96,11 @@ const ListDetail = (props) => {
               />
             ))}
           </div>
-          <div>
-              <button onClick={() => props.history.push("/addtask")}>Add New Task</button>
-          </div>
+        </div>
+        </div>
+        <div>
+          <button onClick={() => props.history.push("/addtask")}>Add New Task</button>
+        </div>
       </div>
     );
   };
