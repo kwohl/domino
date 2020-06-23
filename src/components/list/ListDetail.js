@@ -66,6 +66,7 @@ const ListDetail = (props) => {
         <p><strong>{list.description}</strong></p>
         <div className="flexRow">
         <div className="kanban">
+          <p className="kanbanTitle"><strong>To Do</strong></p>
           <div>
             {tasks.map(task => (
               
@@ -83,6 +84,7 @@ const ListDetail = (props) => {
           </div>
         </div>
         <div className="kanban">
+          <p className="kanbanTitle"><strong>Complete</strong></p>
           <div>
             {finishedTasks.map(task => (
               <TaskCard
