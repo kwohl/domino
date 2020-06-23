@@ -15,7 +15,7 @@ const TaskCard = (props) => {
                 taskSteps.map(taskStep => {
                     props.completeStep(parseInt(taskStep.step.url.split("/")[4]))
                 })
-            })
+            }).then(props.getTasks)
       }
 
     useEffect(() => {
