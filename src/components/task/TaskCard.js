@@ -37,16 +37,16 @@ const TaskCard = (props) => {
                         {taskStep.step.name}
                         <span style={{ display: taskStep.step.is_complete ? "" : "none" }}>: Complete!</span> 
                     </li>
-                    <button onClick={() => props.completeStep(parseInt(taskStep.step.url.split("/")[4]))}>Complete</button>
-                    <button onClick={() => props.deleteStep(taskStep.step.url.split("/")[4])}>delete step</button>
+                    <button onClick={() => props.completeStep(parseInt(taskStep.step.url.split("/")[4]))} style={{ display: taskStep.step.is_complete ? "none" : "" }}>Complete</button>
+                    <button onClick={() => props.deleteStep(taskStep.step.url.split("/")[4]) } style={{ display: taskStep.step.is_complete ? "none" : "" }}>Delete Step</button>
                     <button onClick={() => props.history.push(`/step/${taskStep.step.url.split("/")[4]}`)}>Edit</button>
                     </div>
                 ))}
             </ul>
-            <button onClick={() => props.history.push(`/addstep/${props.task.id}`)}>Add Steps</button>
+            <button onClick={() => props.history.push(`/addstep/${props.task.id}`)} style={{ display: props.task.is_complete ? "none" : "" }}>Add Steps</button>
             <button onClick={() => props.deleteTask(props.task.id)}>Delete</button>
             <button onClick={() => props.history.push(`/task/${props.task.id}`)}>Edit</button>
-            <button onClick={() => completeTask(props.task.id)}>Complete Task</button>
+            <button onClick={() => completeTask(props.task.id)} style={{ display: props.task.is_complete ? "none" : "" }}>Complete Task</button>
             </div>
         );
     } else {
@@ -54,10 +54,10 @@ const TaskCard = (props) => {
             <div className="taskCard">  
             <p><strong>{props.task.name}</strong><span style={{ display: props.task.is_complete ? "" : "none" }}>- Complete!</span></p>
             <p>{props.task.discription}</p>
-            <button onClick={() => props.history.push(`/addstep/${props.task.id}`)}>Add Steps</button>
+            <button onClick={() => props.history.push(`/addstep/${props.task.id}`)} style={{ display: props.task.is_complete ? "none" : "" }}>Add Steps</button>
             <button onClick={() => props.deleteTask(props.task.id)}>Delete</button>
             <button onClick={() => props.history.push(`/task/${props.task.id}`)}>Edit</button>
-            <button onClick={() => completeTask(props.task.id)}>Complete Task</button>
+            <button onClick={() => completeTask(props.task.id)} style={{ display: props.task.is_complete ? "none" : "" }}>Complete Task</button>
             </div>
         );
     }
