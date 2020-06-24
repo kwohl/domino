@@ -48,8 +48,10 @@ const TaskForm = (props) => {
                 <label htmlFor="taskListId"> List </label>
                 <select
                 id="taskListId"
+                required
                 value={newTask.taskListId}
                 onChange={handleFieldChange}>
+                <option value="">-</option>
                 {lists.map(list =>
                     <option key={list.id} value={list.id}>
                     {list.name}
