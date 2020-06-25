@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import TaskManager from "../../modules/TaskManager";
 import TaskStepManager from "../../modules/TaskStepManager";
 import StepManager from "../../modules/StepManager";
 

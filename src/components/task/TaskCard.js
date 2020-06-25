@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import TaskStepManager from "../../modules/TaskStepManager";
 import TaskManager from "../../modules/TaskManager";
-import StepManager from "../../modules/StepManager";
-import { Redirect } from "react-router-dom";
+// import StepManager from "../../modules/StepManager";
+// import { Redirect } from "react-router-dom";
 
 const TaskCard = (props) => {
     const [taskSteps, setTaskSteps] = useState([])
@@ -12,7 +12,7 @@ const TaskCard = (props) => {
         const taskObj = { "is_complete": true }
         TaskManager.completeTask(taskObj, taskId)
             .then(() => {
-                taskSteps.map(taskStep => {
+                taskSteps.forEach(taskStep => {
                     props.completeStep(parseInt(taskStep.step.url.split("/")[4]))
                 })
             }).then(props.getTasks)
@@ -24,7 +24,7 @@ const TaskCard = (props) => {
         }, [props.task])
 
     
-    if (taskSteps.length != 0) {
+    if (taskSteps.length !== 0) {
         return (
             <div className="taskCard">  
             <p><strong>{props.task.name}</strong><span style={{ display: props.task.is_complete ? "" : "none" }}>- Complete!</span></p>

@@ -22,7 +22,7 @@ const ListDetail = (props) => {
 
       TaskManager.getTasksByList(props.listId)
         .then(response => {
-          response.map(task => {
+          response.forEach(task => {
             if (task.is_complete === false) {
               incompleteTasks.push(task)
             } else {
