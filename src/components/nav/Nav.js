@@ -9,18 +9,32 @@ const NavBar = (props) => {
   return (
     <div id="navDiv">
         <nav>
-            <Link to="/">Home</Link>
+            <div className="link-container">
+            <Link className="link" to="/"><h3>HOME</h3></Link>
+            </div>
             {isAuthenticated() ? (
             <>
-            <Link to="/addtask">Add Task</Link>
-            <Link to="/lists">Lists</Link>
-            <Link to="/">Settings</Link>
-            <Link onClick={() => {logout()}} to="/">Log Out</Link>
+            <div className="link-container">
+            <Link className="link" to="/addtask"><h3>ADD TASK</h3></Link>
+            </div>
+            <div className="link-container">
+            <Link className="link" to="/lists"><h3>LISTS</h3></Link>
+            </div>
+            <div className="link-container">
+            <Link to="/"><h3>SETTINGS</h3></Link>
+            </div>
+            <div className="link-container">
+            <Link onClick={() => {logout()}} to="/"><h3>LOG OUT</h3></Link>
+            </div>
             </>
             ) : (
             <>
-            <Link to="/login">Log In</Link>
-            <Link to="/register">Register</Link>
+            <div className="link-container">
+            <Link to="/login"><h3>LOG IN</h3></Link>
+            </div>
+            <div className="link-container">
+            <Link to="/register"><h3>REGISTER</h3></Link>
+            </div>
             </>
             )}
         </nav>

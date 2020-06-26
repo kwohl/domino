@@ -3,6 +3,7 @@ import ListManager from "../../modules/ListManager";
 import TaskManager from "../../modules/TaskManager";
 import TaskCard from "../task/TaskCard";
 import StepManager from "../../modules/StepManager";
+import { Progress } from 'semantic-ui-react'
 
 const ListDetail = (props) => {
     const [list, setList] = useState({ name: "", description: "" })
@@ -62,9 +63,9 @@ const ListDetail = (props) => {
     
     return (
       <div className="pageContent">
-        <h3>{list.name}</h3>
-        <p><strong>{list.description}</strong></p>
-        <div className="flexRow">
+        <h1 className="page-header">{list.name}</h1>
+        {/* <p className="white">{list.description}</p> */}
+        <div className="boards">
         <div className="kanban">
           <p className="kanbanTitle"><strong>To Do</strong></p>
           <div>
@@ -99,9 +100,6 @@ const ListDetail = (props) => {
             ))}
           </div>
         </div>
-        </div>
-        <div>
-          <button onClick={() => props.history.push("/addtask")}>Add New Task</button>
         </div>
       </div>
     );

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import useSimpleAuth from "./useSimpleAuth";
+import { Form, Button } from "semantic-ui-react"
 
 const Login = (props) => {
   const [credentials, setCredentials] = useState({
@@ -27,10 +28,10 @@ const Login = (props) => {
 
   return (
     <div className="pageContent" id="login">
-      <form onSubmit={handleLogin}>
+      <Form onSubmit={handleLogin}>
       <h1>Log In to Domino!</h1>
         <fieldset>
-          <label htmlFor="username"> Username </label>
+          <label className="label" htmlFor="username"> Username </label>
           <input
             onChange={handleFieldChange}
             type="text"
@@ -42,7 +43,7 @@ const Login = (props) => {
           />
         </fieldset>
         <fieldset>
-          <label htmlFor="password"> Password </label>
+          <label className="label" htmlFor="password"> Password </label>
           <input
             onChange={handleFieldChange}
             type="password"
@@ -54,9 +55,10 @@ const Login = (props) => {
           />
         </fieldset>
         <fieldset>
-          <button type="submit">Login</button>
+          <button className="button" 
+          type="submit">Login</button>
         </fieldset>
-      </form>
+      </Form>
     </div>
   );
 };

@@ -41,7 +41,8 @@
   margin-left: 215px;
   margin-top: 50px;
   position: absolute;
-  height: 75%;
+  height: 80%;
+  width: 75%;
 }
 
 #login {
@@ -63,20 +64,49 @@
   margin-right: 5px;
 }
 
-.flexRow {
+.boards {
   display: flex;
   height: 100%;
-  margin-bottom: 10px;
+  margin-left: 5%;
+  margin-top: 10px;
+  margin-bottom: 15px;  
 }
 
 .kanban {
-  background-color: gainsboro;
+  /* background: linear-gradient(180deg, rgba(121,0,255,1) 30%, rgba(255,121,72,1) 100%); */
+  /* border: #61dafb solid; */
   height: 100%;
-  margin-right: 10px;
+  margin-right: 50px;
   border-radius: 1%;
-  width: 350px;
+  width: 400px;
+  box-shadow: 5px 5px 20px;
+  background-color: #5802bb;
+  overflow: auto;
 }
 
 .kanbanTitle {
   margin-left: 10px;
+}
+
+.task-form {
+  width: 500px;
+  border: #61dafb solid;
+  padding: 15px;
+  border-radius: 1%;
+}
+
+.page-header {
+  font-size: 72px;
+  background: -webkit-linear-gradient(rgba(121,0,255,1), rgba(255,121,72,1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+}
+
+.white {
+  color: white;
+}
+
+li {
+  list-style-type: none;
 }
