@@ -26,6 +26,7 @@ const ListDetail = (props) => {
           response.forEach(task => {
             if (task.is_complete === false) {
               incompleteTasks.push(task)
+              console.log("task not complete: ", task.name)
             } else {
               completeTasks.push(task)
             }
@@ -55,11 +56,17 @@ const ListDetail = (props) => {
         .then(getTasks)
     }
 
+    const undoCompleteStep = (stepId) => {
+      const stepObj = { "is_complete": false}
+      StepManager.completeStep(stepObj, stepId)
+        .then(getTasks)
+    }
+
 
     useEffect(() => {
       getList()
       getTasks()
-    }, [])
+    }, [props.listId])
     
     return (
       <div className="pageContent">
@@ -67,8 +74,9 @@ const ListDetail = (props) => {
         {/* <p className="white">{list.description}</p> */}
         <div className="boards">
         <div className="kanban">
-          <p className="kanbanTitle"><strong>To Do</strong></p>
-          <div>
+          <p className="kanbanTitle"><strong><span style={{color: "#DB5878"}}>To Do</span></strong></p>
+          
+          <div className="board-content">
             {tasks.map(task => (
               
               <TaskCard
@@ -78,15 +86,19 @@ const ListDetail = (props) => {
                 deleteStep={deleteStep}
                 deleteTask={deleteTask}
                 completeStep={completeStep}
+                undoCompleteStep={undoCompleteStep}
                 getTasks={getTasks}
+                getList={getList}
                 {...props}
               />
             ))}
           </div>
+          
         </div>
         <div className="kanban">
-          <p className="kanbanTitle"><strong>Complete</strong></p>
-          <div>
+          <p className="kanbanTitle"><strong><span style={{color: "#DB5878"}}>Complete</span></strong></p>
+
+          <div className="board-content">
             {finishedTasks.map(task => (
               <TaskCard
                 key={task.id}
@@ -95,10 +107,14 @@ const ListDetail = (props) => {
                 deleteStep={deleteStep}
                 deleteTask={deleteTask}
                 completeStep={completeStep}
+                undoCompleteStep={undoCompleteStep}
+                getTasks={getTasks}
+                getList={getList}
                 {...props}
               />
             ))}
           </div>
+
         </div>
         </div>
       </div>

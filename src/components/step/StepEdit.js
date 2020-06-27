@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import StepManager from "../../modules/StepManager";
 import TaskManager from "../../modules/TaskManager";
 import TaskStepManager from "../../modules/TaskStepManager";
+import { Form, Button, Select } from "semantic-ui-react"
 
 const StepEditForm = (props) => {
     const [step, setStep] = useState({ id: "", name: "", description: "" })
@@ -47,7 +48,7 @@ const StepEditForm = (props) => {
         } 
 
         StepManager.updateStep(updatedStep, parseInt(step.id))
-            .then(() => props.history.push(`/lists`));
+            .then(props.getTasks);
     };
 
     const addTaskStep = () => {
@@ -56,7 +57,7 @@ const StepEditForm = (props) => {
         "task_id": parseInt(taskIdObj.taskId)
       }
       TaskStepManager.addTaskStep(newTaskStepObj)
-        .then(() => props.history.push(`/lists`))
+        .then(props.getTasks)
     }
 
     useEffect(() => {
@@ -65,11 +66,11 @@ const StepEditForm = (props) => {
       }, [])
 
     return (
-      <div className="pageContent">
-      <h1>{step.name}</h1>
-      <form onSubmit={updateStep}>
-        <fieldset>
-          <label htmlFor="name">Name:</label>
+      <div>
+      
+      <Form onSubmit={updateStep}>
+        <Form.Field>
+          <label htmlFor="name">Name</label>
           <input
             type="text"
             required
@@ -77,23 +78,24 @@ const StepEditForm = (props) => {
             id="name"
             value={step.name}
           />
-        </fieldset>
-        <fieldset>
-          <label htmlFor="description">Description:</label>
+        </Form.Field>
+        <Form.Field>
+          <label htmlFor="description">Description</label>
           <textarea
             type="textarea"
             onChange={handleFieldChange}
             id="description"
             value={step.description === null ? ("") : (step.description)}
           />
-        </fieldset>
+        </Form.Field>
         
-        <fieldset>
-          <button type="submit">Save Changes</button>
-        </fieldset>
-      </form>
+        <Form.Field>
+          <Button style={{'background-color': "#DB5878", color: 'white'}} type="submit">Save Changes</Button>
+        </Form.Field>
+      </Form>
 
-      <div>
+      <Form className="edit-step-margin" onSubmit={addTaskStep}>
+        <Form.Field>
         <h3>Connect step to another task?</h3>
             <select
             id="taskId"
@@ -107,8 +109,11 @@ const StepEditForm = (props) => {
                 </option>
             )}
             </select>
-            <button onClick={addTaskStep}>Add</button>
-      </div>
+            </Form.Field>
+            <Form.Field>
+            <Button type="submit" style={{'background-color': "#DB5878", color: 'white'}}>Add</Button>
+            </Form.Field>
+      </Form>
       </div>
     );
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import TaskManager from "../../modules/TaskManager";
 import ListManager from "../../modules/ListManager";
+import { Form, Button } from "semantic-ui-react";
 
 const TaskForm = (props) => {
     const [newTask, setNewTask] = useState({ name: "", description: "", taskListId: "" })
@@ -42,11 +43,11 @@ const TaskForm = (props) => {
 
     return (
         <div className="pageContent">
-            <h1 className="title">Add a Task</h1>
+            <h1 className="page-header">Add a Task</h1>
             
-            <form className="task-form" onSubmit={handleSubmit}>
-            <fieldset className="field">
-                <label className="label" htmlFor="taskListId"> List </label>
+            <Form className="task-form" onSubmit={handleSubmit}>
+            <Form.Field>
+                <label htmlFor="taskListId"><span className="form-label"> List </span></label>
                 <div className="control is-expanded">
                 <div className="select is-fullwidth">
                 <select
@@ -64,31 +65,35 @@ const TaskForm = (props) => {
                 </select>
                 </div>
                 </div>
-            </fieldset>
+            </Form.Field>
 
-            <fieldset className="field">
-                <label className="label" htmlFor="name"> Name </label>
+            <Form.Field>
+                <label htmlFor="name"><span className="form-label"> Name </span></label>
                 <div className="control">
                 <input className="input" onChange={handleFieldChange} type="text"
                 id="name"
-                required="" autoFocus="" value={newTask.name} />
+                required autoFocus="" value={newTask.name} />
                 </div>
-            </fieldset>
+            </Form.Field>
 
-            <fieldset className="field">
-                <label className="label" htmlFor="description"> Description </label>
+            <Form.Field>
+                <label htmlFor="description"><span className="form-label"> Description </span></label>
                 <div className="control">
-                <textarea className="textarea" onChange={handleFieldChange} type="textarea"
-                id="description"
-                required="" autoFocus="" value={newTask.description} />
+                <textarea 
+                    className="textarea" onChange={handleFieldChange} 
+                    type="textarea"
+                    id="description"
+                    autoFocus="" 
+                    value={newTask.description} 
+                />
                 </div>
-            </fieldset>
+            </Form.Field>
 
-            <fieldset className="field">
-                <button className="button" type="submit">Submit</button>
-            </fieldset>
+            <Form.Field>
+                <Button type="submit" style={{'background-color': "#DB5878", color: 'white'}}>Submit</Button>
+            </Form.Field>
 
-            </form>
+            </Form>
         </div>
     );
 };

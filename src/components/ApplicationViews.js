@@ -2,13 +2,11 @@ import React from "react";
 import { Route } from "react-router-dom";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
-// import useSimpleAuth from "./auth/useSimpleAuth";
 import ListDetail from "./list/ListDetail";
-import List from "./list/List";
 import TaskForm from "./task/TaskForm";
 import TaskDetail from "./task/TaskDetail";
-import StepForm from "./step/StepForm";
 import StepEditForm from "./step/StepEdit";
+import Home from "./home/Home";
 
 const ApplicationViews = (props) => {
     // const { isAuthenticated } = useSimpleAuth()
@@ -23,21 +21,18 @@ const ApplicationViews = (props) => {
         }}/>
         <Route path="/list/:listId(\d+)" render={(props) => {
             return <ListDetail listId={parseInt(props.match.params.listId)} { ...props } />
-        }}/>
-        <Route path="/lists" render={(props) => {
-            return <List { ...props } />
-        }}/>
+        }}/>        
         <Route path="/addtask" render={(props) => {
             return <TaskForm { ...props } />
         }}/>
         <Route path="/task/:taskId(\d+)" render={(props) => {
             return <TaskDetail taskId={parseInt(props.match.params.taskId)} { ...props } />
         }}/>
-        <Route path="/addstep/:taskId(\d+)" render={(props) => {
-            return <StepForm taskId={parseInt(props.match.params.taskId)} { ...props } />
-        }}/>
         <Route path="/step/:stepId(\d+)" render={(props) => {
             return <StepEditForm stepId={parseInt(props.match.params.stepId)} { ...props } />
+        }}/>
+        <Route exact path="/" render={(props) => {
+            return <Home { ...props }/>
         }}/>
         </>
     )

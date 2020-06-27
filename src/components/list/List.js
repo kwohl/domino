@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ListManager from "../../modules/ListManager";
+import { Link } from "react-router-dom";
 
 const List = (props) => {
     const [lists, setLists] = useState([])
@@ -17,11 +18,10 @@ const List = (props) => {
     }, [])
     
     return (
-      <div className="pageContent">
-          <h3>Select a List to View</h3>
+      <div>
           <div>
             {lists.map(list => (
-              <p key={list.id} onClick={() => props.history.push(`/list/${list.id}`)}>{list.name}</p>
+              <Link key={list.id} onClick={() => props.history.push(`/list/${list.id}`)}>{list.name}</Link>
             ))}
           </div>
       </div>

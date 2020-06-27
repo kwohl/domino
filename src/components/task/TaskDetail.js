@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TaskManager from "../../modules/TaskManager";
 import ListManager from "../../modules/ListManager";
+import { Form, Button } from "semantic-ui-react";
 
 const TaskDetail = (props) => {
     const [task, setTask] = useState({ id: "", name: "", description: "", task_list: "" })
@@ -55,10 +56,10 @@ const TaskDetail = (props) => {
 
     return (
         <div className="pageContent">
-      <h1>{task.name}</h1>
-      <form onSubmit={updateTask}>
-        <fieldset>
-          <label htmlFor="name">Name:</label>
+      <h1 className="page-header">{task.name}</h1>
+      <Form style={{ width: "600px" }} onSubmit={updateTask}>
+        <Form.Field>
+          <label htmlFor="name"><span className="form-label">Name</span></label>
           <input
             type="text"
             required
@@ -66,18 +67,18 @@ const TaskDetail = (props) => {
             id="name"
             value={task.name}
           />
-        </fieldset>
-        <fieldset>
-          <label htmlFor="description">Description:</label>
+        </Form.Field>
+        <Form.Field>
+          <label htmlFor="description"><span className="form-label">Description</span></label>
           <textarea
             type="text"
             onChange={handleFieldChange}
             id="description"
             value={task.description === null ? ("") : (task.description)}
           />
-        </fieldset>
-        <fieldset>
-            <label htmlFor="task_list"> List </label>
+        </Form.Field>
+        <Form.Field>
+            <label htmlFor="task_list"><span className="form-label"> List </span></label>
             <select
             id="task_list"
             defaultValue={task.listId}
@@ -89,12 +90,12 @@ const TaskDetail = (props) => {
                 </option>
             )}
             </select>
-        </fieldset>
+        </Form.Field>
         
-        <fieldset>
-          <button type="submit">Save Changes</button>
-        </fieldset>
-      </form>
+        <Form.Field>
+          <Button type="submit" style={{'background-color': "#DB5878", color: 'white'}}>Save Changes</Button>
+        </Form.Field>
+      </Form>
         </div>
     );
 }
