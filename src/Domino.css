@@ -76,7 +76,9 @@
   border-radius: 1%;
   width: 400px;
   box-shadow: 5px 5px 20px;
-  background-color: #5802bb;
+  /* background-color: #5802bb; */
+  background-color: #5802bbc5;
+  /* background-color: rgb(96, 42, 189); */
   overflow: auto;
 }
 
