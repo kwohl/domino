@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import TaskManager from "../../modules/TaskManager";
 import ListManager from "../../modules/ListManager";
+import { Form, Button } from "semantic-ui-react";
 
 const TaskForm = (props) => {
     const [newTask, setNewTask] = useState({ name: "", description: "", taskListId: "" })
@@ -42,43 +43,57 @@ const TaskForm = (props) => {
 
     return (
         <div className="pageContent">
-            <form onSubmit={handleSubmit}>
-            <h1>Add a Task</h1>
-            <fieldset>
-                <label htmlFor="taskListId"> List </label>
+            <h1 className="page-header">Add a Task</h1>
+            
+            <Form className="task-form" onSubmit={handleSubmit}>
+            <Form.Field>
+                <label htmlFor="taskListId"><span className="form-label"> List </span></label>
+                <div className="control is-expanded">
+                <div className="select is-fullwidth">
                 <select
+                
                 id="taskListId"
                 required
                 value={newTask.taskListId}
                 onChange={handleFieldChange}>
-                <option value="">-</option>
+                <option value="">Select a List</option>
                 {lists.map(list =>
                     <option key={list.id} value={list.id}>
                     {list.name}
                     </option>
                 )}
                 </select>
-            </fieldset>
+                </div>
+                </div>
+            </Form.Field>
 
-            <fieldset>
-                <label htmlFor="name"> Name </label>
-                <input onChange={handleFieldChange} type="text"
+            <Form.Field>
+                <label htmlFor="name"><span className="form-label"> Name </span></label>
+                <div className="control">
+                <input className="input" onChange={handleFieldChange} type="text"
                 id="name"
-                required="" autoFocus="" value={newTask.name} />
-            </fieldset>
+                required autoFocus="" value={newTask.name} />
+                </div>
+            </Form.Field>
 
-            <fieldset>
-                <label htmlFor="description"> Description </label>
-                <textarea onChange={handleFieldChange} type="textarea"
-                id="description"
-                required="" autoFocus="" value={newTask.description} />
-            </fieldset>
+            <Form.Field>
+                <label htmlFor="description"><span className="form-label"> Description </span></label>
+                <div className="control">
+                <textarea 
+                    className="textarea" onChange={handleFieldChange} 
+                    type="textarea"
+                    id="description"
+                    autoFocus="" 
+                    value={newTask.description} 
+                />
+                </div>
+            </Form.Field>
 
-            <fieldset>
-                <button type="submit">Submit</button>
-            </fieldset>
+            <Form.Field>
+                <Button type="submit" style={{'background-color': "#DB5878", color: 'white'}}>Submit</Button>
+            </Form.Field>
 
-            </form>
+            </Form>
         </div>
     );
 };

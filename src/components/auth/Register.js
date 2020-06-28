@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import useSimpleAuth from "./useSimpleAuth";
+import { Form, Button } from "semantic-ui-react";
 
 const Register = (props) => {
   const [credentials, setCredentials] = useState({ email: "", username: "", password: "", });
@@ -25,12 +26,10 @@ const Register = (props) => {
 
   return (
     <div className="pageContent" id="register">
-      <form onSubmit={handleRegister}>
-        <h1>
-          Register to get started with Domino!
-        </h1>
-        <fieldset>
-          <label htmlFor="email"> Email </label>
+      <h1 className="page-header">Get started with Domino!</h1>
+      <Form style={{ width: "600px" }} onSubmit={handleRegister}>
+        <Form.Field>
+          <label htmlFor="email"><span className="form-label"> Email </span></label>
           <input
             onChange={handleFieldChange}
             type="email"
@@ -39,9 +38,9 @@ const Register = (props) => {
             required=""
             autoFocus=""
           />
-        </fieldset>
-        <fieldset>
-          <label htmlFor="username"> Username </label>
+        </Form.Field>
+        <Form.Field>
+          <label htmlFor="username"><span className="form-label"> Username </span></label>
           <input
             onChange={handleFieldChange}
             type="text"
@@ -50,9 +49,9 @@ const Register = (props) => {
             required=""
             autoFocus=""
           />
-        </fieldset>
-        <fieldset>
-          <label htmlFor="password"> Password </label>
+        </Form.Field>
+        <Form.Field>
+          <label htmlFor="password"><span className="form-label"> Password </span></label>
           <input
             onChange={handleFieldChange}
             type="password"
@@ -61,11 +60,11 @@ const Register = (props) => {
             required=""
             autoFocus=""
           />
-        </fieldset>
-        <fieldset>
-          <button type="submit">Register</button>
-        </fieldset>
-      </form>
+        </Form.Field>
+        <Form.Field>
+          <Button style={{'background-color': "#DB5878", color: 'white'}} type="submit">Register</Button>
+        </Form.Field>
+      </Form>
     </div>
   );
 };

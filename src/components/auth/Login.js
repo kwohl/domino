@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import useSimpleAuth from "./useSimpleAuth";
+import { Form, Button } from "semantic-ui-react"
 
 const Login = (props) => {
   const [credentials, setCredentials] = useState({
@@ -27,10 +28,10 @@ const Login = (props) => {
 
   return (
     <div className="pageContent" id="login">
-      <form onSubmit={handleLogin}>
-      <h1>Log In to Domino!</h1>
-        <fieldset>
-          <label htmlFor="username"> Username </label>
+      <h1 style={{ width: "1000px" }} className="page-header">Log In to Domino!</h1>
+      <Form style={{ width: "600px" }} onSubmit={handleLogin}>
+        <Form.Field>
+          <label htmlFor="username"><span className="form-label"> Username </span></label>
           <input
             onChange={handleFieldChange}
             type="text"
@@ -40,9 +41,9 @@ const Login = (props) => {
             autoFocus=""
             value={credentials.username}
           />
-        </fieldset>
-        <fieldset>
-          <label htmlFor="password"> Password </label>
+        </Form.Field>
+        <Form.Field>
+          <label htmlFor="password"><span className="form-label"> Password </span></label>
           <input
             onChange={handleFieldChange}
             type="password"
@@ -52,11 +53,13 @@ const Login = (props) => {
             autoFocus=""
             value={credentials.password}
           />
-        </fieldset>
-        <fieldset>
-          <button type="submit">Login</button>
-        </fieldset>
-      </form>
+        </Form.Field>
+        <Form.Field>
+          <Button 
+          style={{'background-color': "#DB5878", color: 'white'}}
+          type="submit">Login</Button>
+        </Form.Field>
+      </Form>
     </div>
   );
 };

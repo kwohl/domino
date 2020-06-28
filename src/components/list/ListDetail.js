@@ -3,6 +3,7 @@ import ListManager from "../../modules/ListManager";
 import TaskManager from "../../modules/TaskManager";
 import TaskCard from "../task/TaskCard";
 import StepManager from "../../modules/StepManager";
+import { Progress } from 'semantic-ui-react'
 
 const ListDetail = (props) => {
     const [list, setList] = useState({ name: "", description: "" })
@@ -25,6 +26,7 @@ const ListDetail = (props) => {
           response.forEach(task => {
             if (task.is_complete === false) {
               incompleteTasks.push(task)
+              console.log("task not complete: ", task.name)
             } else {
               completeTasks.push(task)
             }
@@ -54,20 +56,27 @@ const ListDetail = (props) => {
         .then(getTasks)
     }
 
+    const undoCompleteStep = (stepId) => {
+      const stepObj = { "is_complete": false}
+      StepManager.completeStep(stepObj, stepId)
+        .then(getTasks)
+    }
+
 
     useEffect(() => {
       getList()
       getTasks()
-    }, [])
+    }, [props.listId])
     
     return (
       <div className="pageContent">
-        <h3>{list.name}</h3>
-        <p><strong>{list.description}</strong></p>
-        <div className="flexRow">
+        <h1 className="page-header">{list.name}</h1>
+        {/* <p className="white">{list.description}</p> */}
+        <div className="boards">
         <div className="kanban">
-          <p className="kanbanTitle"><strong>To Do</strong></p>
-          <div>
+          <p className="kanbanTitle"><strong><span style={{color: "#DB5878"}}>To Do</span></strong></p>
+          
+          <div className="board-content">
             {tasks.map(task => (
               
               <TaskCard
@@ -77,15 +86,19 @@ const ListDetail = (props) => {
                 deleteStep={deleteStep}
                 deleteTask={deleteTask}
                 completeStep={completeStep}
+                undoCompleteStep={undoCompleteStep}
                 getTasks={getTasks}
+                getList={getList}
                 {...props}
               />
             ))}
           </div>
+          
         </div>
         <div className="kanban">
-          <p className="kanbanTitle"><strong>Complete</strong></p>
-          <div>
+          <p className="kanbanTitle"><strong><span style={{color: "#DB5878"}}>Complete</span></strong></p>
+
+          <div className="board-content">
             {finishedTasks.map(task => (
               <TaskCard
                 key={task.id}
@@ -94,14 +107,15 @@ const ListDetail = (props) => {
                 deleteStep={deleteStep}
                 deleteTask={deleteTask}
                 completeStep={completeStep}
+                undoCompleteStep={undoCompleteStep}
+                getTasks={getTasks}
+                getList={getList}
                 {...props}
               />
             ))}
           </div>
+
         </div>
-        </div>
-        <div>
-          <button onClick={() => props.history.push("/addtask")}>Add New Task</button>
         </div>
       </div>
     );
