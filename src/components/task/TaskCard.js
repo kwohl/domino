@@ -115,7 +115,7 @@ const TaskCard = (props) => {
                         {taskStep.step.name}
                         </div>
                       
-                     <div style={{ display: taskStep.step.is_complete ? "none" : "" }}>
+                     <div style={{ flexDirection: "row", display: taskStep.step.is_complete ? "none" : "flex" }}>
                       {/* <Icon 
                         name="edit outline" 
                         onClick={() => props.history.push(`/step/${taskStep.step.url.split("/")[4]}`)}>                            
