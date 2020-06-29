@@ -6,6 +6,7 @@
   --main-padding: 15px;
   --white: white;
   --box-shadow-color: black;
+  --main-header-color: #ff695e;
   --bg-art: url("blue_theme_bg_img.svg");
 }
 
@@ -19,7 +20,7 @@ body {
   height: 100%;
   background-color: var(--main-bg-color);
   background-image: var(--bg-art);
-  background-position: 112% bottom;
+  background-position: 113% bottom;
   background-repeat: no-repeat;
 }
 

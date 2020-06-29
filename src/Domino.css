@@ -19,7 +19,7 @@
 
 .page-header {
   font-size: 72px;
-  color: var(--white);
+  color: var(--main-header-color);
   text-align: center;
 }
 
