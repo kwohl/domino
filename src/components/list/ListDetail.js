@@ -70,7 +70,10 @@ const ListDetail = (props) => {
     
     return (
       <>
+      <div className="pageTools">
       <h1 className="page-header">{list.name}</h1>
+      </div>
+      
       <div className="pageContent">
         <div className="boards">
         <div className="kanban">

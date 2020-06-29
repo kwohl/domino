@@ -8,16 +8,19 @@
 }
 
 .pageTools {
-
+  position: absolute;
+  /* background-color: aliceblue;
+  opacity: 50%; */
+  width: 600px;
+  height: 300px;
+  margin-top: 40px;
+  margin-left: 64%;
 }
 
 .page-header {
-  position: absolute;
   font-size: 72px;
-  margin-bottom: 20px;
-  margin-top: 40px;
-  margin-left: 74%;
   color: var(--white);
+  text-align: center;
 }
 
 .formWidth {
@@ -62,7 +65,8 @@
   box-shadow: 5px 5px 20px;
   padding: 15px;
   border-radius: 1%;
-  margin-left: 5%;
+  margin-left: 9%;
+  margin-top: 40px;
   background-color: var(--main-window-color);
 }
 
@@ -80,9 +84,9 @@ li {
   justify-content: space-between;
 }
 
-.form-label {
+/* .form-label {
   color: var(--white);
-}
+} */
 
 .edit-step-margin {
   margin-top: 20px;

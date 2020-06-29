@@ -1,11 +1,12 @@
 :root {
-  --main-bg-color: #42008d;
-  --main-window-color: #5802bb;
-  --main-accent-color: #ff7948;
-  --nav-color: linear-gradient(360deg, var(--main-window-color) 30%, var(--main-accent-color) 100%); 
+  --main-bg-color: #ffffff;
+  --main-window-color: #f2f2f2;
+  --main-accent-color: #ff695e;
+  --nav-color: #3F3D56; 
   --main-padding: 15px;
   --white: white;
   --box-shadow-color: black;
+  --bg-art: url("blue_theme_bg_img.svg");
 }
 
 body {
@@ -17,7 +18,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
   background-color: var(--main-bg-color);
-  background-image: url("undraw_online_organizer_ofxm.svg");
+  background-image: var(--bg-art);
   background-position: 112% bottom;
   background-repeat: no-repeat;
 }

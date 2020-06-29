@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Form, Radio } from "semantic-ui-react";
+import { Form, Radio, Header, Icon } from "semantic-ui-react";
 
 const Settings = (props) => {
     const [theme, setTheme] = useState(sessionStorage.getItem('theme'))
@@ -10,28 +10,25 @@ const Settings = (props) => {
             document.documentElement.style.setProperty('--main-window-color', '#f2f2f2');
             document.documentElement.style.setProperty('--main-accent-color', '#ff695e');
             document.documentElement.style.setProperty('--nav-color', '#3F3D56');
-            document.documentElement.style.setProperty('--white', '#f2f2f2');
+            document.documentElement.style.setProperty('--white', '#ffffff');
         }
         //#DB5878 <to do column?
-        //#ff695e <accent color for inverted red (progress bar)
+        //#ff7948 <pretty orange
+        //#5802bb <original pretty purple
         if (theme === 'purple') {
             document.documentElement.style.setProperty('--main-bg-color', '#42008d');
-            document.documentElement.style.setProperty('--main-window-color', '#5802bb');
-            document.documentElement.style.setProperty('--main-accent-color', '#ff7948');
-            document.documentElement.style.setProperty('--nav-color', 'linear-gradient(360deg, var(--main-window-color) 30%, var(--main-accent-color) 100%)');
+            document.documentElement.style.setProperty('--main-window-color', '#f2f2f2');
+            document.documentElement.style.setProperty('--main-accent-color', '#ff695e');
+            document.documentElement.style.setProperty('--nav-color', 'linear-gradient(360deg, #5802bb 30%, var(--main-accent-color) 100%)');
             document.documentElement.style.setProperty('--white', '#ffffff');
         }
         if (theme === 'teal') {
-            document.documentElement.style.setProperty('--main-bg-color', '#0D4145');
-            document.documentElement.style.setProperty('--main-window-color', '#1b978f');
-            document.documentElement.style.setProperty('--main-accent-color', '#ddfff7');
-            document.documentElement.style.setProperty('--nav-color', '#1b978f');
-            document.documentElement.style.setProperty('--white', '#f2f2f2');
+            document.documentElement.style.setProperty('--main-bg-color', '#119da4');
+            document.documentElement.style.setProperty('--main-window-color', '#f2f2f2');
+            document.documentElement.style.setProperty('--main-accent-color', '#ff695e');
+            document.documentElement.style.setProperty('--nav-color', '#114b5f');
+            document.documentElement.style.setProperty('--white', '#ffffff');
         }
-    }
-
-    const handleThemeChange = () => {
-
     }
 
     useEffect(() => {
@@ -42,7 +39,15 @@ const Settings = (props) => {
         <div className="pageContent">
             <div className="task-form">
             <Form>
-                Please select a theme
+            <div className="center">
+                <Header as='h2' icon>
+                    <Icon name='settings' />
+                    Account Settings
+                    <Header.Subheader>
+                    Please Select a Theme
+                    </Header.Subheader>
+                </Header>
+            </div>
                 <Form.Field>
                     <Radio
                         label='Blue'
