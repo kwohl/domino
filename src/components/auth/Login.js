@@ -27,7 +27,7 @@ const Login = (props) => {
   };
 
   return (
-    <div className="pageContent" id="login">
+    <div className="pageContent formWidth">
       <h1 style={{ width: "1000px" }} className="page-header">Log In to Domino!</h1>
       <Form style={{ width: "600px" }} onSubmit={handleLogin}>
         <Form.Field>

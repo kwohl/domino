@@ -1,3 +1,13 @@
+:root {
+  --main-bg-color: #42008d;
+  --main-window-color: #5802bb;
+  --main-accent-color: #ff7948;
+  --nav-color: #42008d; 
+  --main-padding: 15px;
+  --white: white;
+  --box-shadow-color: black;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -6,7 +16,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
-  background-color: #42008d;
+  background-color: var(--main-bg-color);
   background-image: url("undraw_online_organizer_ofxm.svg");
   background-position: 110% bottom;
   background-repeat: no-repeat;
@@ -15,13 +25,10 @@ body {
 
 html {
   height: 100%;
-  background-color: #42008d;
-
 }
 
 #root {
   height: 100%;
-  /* background-color: #42008d; */
 }
 
 code {

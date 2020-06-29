@@ -25,7 +25,7 @@ const Register = (props) => {
   };
 
   return (
-    <div className="pageContent" id="register">
+    <div className="pageContent formWidth" >
       <h1 className="page-header">Get started with Domino!</h1>
       <Form style={{ width: "600px" }} onSubmit={handleRegister}>
         <Form.Field>

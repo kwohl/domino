@@ -7,6 +7,7 @@ import TaskForm from "./task/TaskForm";
 import TaskDetail from "./task/TaskDetail";
 import StepEditForm from "./step/StepEdit";
 import Home from "./home/Home";
+import Settings from "./settings/Settings";
 
 const ApplicationViews = (props) => {
     // const { isAuthenticated } = useSimpleAuth()
@@ -33,6 +34,9 @@ const ApplicationViews = (props) => {
         }}/>
         <Route exact path="/" render={(props) => {
             return <Home { ...props }/>
+        }}/>
+        <Route path="/settings" render={(props) => {
+            return <Settings { ...props }/>
         }}/>
         </>
     )

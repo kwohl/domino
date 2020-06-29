@@ -42,7 +42,7 @@ const NavBar = (props) => {
             </Accordion>
             </div>
             <div className="link-container">
-            <Link className="link" to="/"><h3>SETTINGS</h3></Link>
+            <Link className="link" to="/settings"><h3>SETTINGS</h3></Link>
             </div>
             <div className="link-container">
             <Link className="link" onClick={() => {logout()}} to="/"><h3>LOG OUT</h3></Link>

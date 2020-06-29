@@ -1,42 +1,4 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
+/* div containing content to the right of nav */
 .pageContent {
   margin-left: 215px;
   margin-top: 50px;
@@ -45,20 +7,16 @@
   width: 75%;
 }
 
-#login {
-  width: 50%;
+.page-header {
+  font-size: 72px;
+  margin-bottom: 20px;
+  color: var(--main-accent-color);
 }
 
-#register {
+/* log in and register forms */
+.formWidth {
   width: 50%;
 }
-
-/* .taskCard {
-  border: 1px solid #282c34;
-  border-radius: 1%;
-  padding: 5px;
-  margin: 10px;
-} */
 
 .boards {
   display: flex;
@@ -69,16 +27,12 @@
 }
 
 .kanban {
-  /* background: linear-gradient(180deg, rgba(121,0,255,1) 30%, rgba(255,121,72,1) 100%); */
-  /* border: #61dafb solid; */
   height: 100%;
   margin-right: 50px;
   border-radius: 1%;
   width: 400px;
-  box-shadow: 5px 5px 20px;
-  /* background-color: #5802bb; */
-  background-color: #5802bb;
-  /* background-color: rgb(96, 42, 189); */
+  box-shadow: 5px 5px 20px var(--box-shadow-color);
+  background-color: var(--main-window-color);
   overflow: auto;
 }
 
@@ -93,19 +47,11 @@
   padding: 15px;
   border-radius: 1%;
   margin-left: 5%;
-  background-color: #5802bb;
-}
-
-.page-header {
-  font-size: 72px;
-  background: -webkit-linear-gradient(rgba(121,0,255,1), rgba(255,121,72,1));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 20px;
+  background-color: var(--main-window-color);
 }
 
 .white {
-  color: white;
+  color: var(--white);
 }
 
 li {
@@ -132,9 +78,13 @@ li {
 }
 
 .form-label {
-  color: white;
+  color: var(--white);
 }
 
 .edit-step-margin {
   margin-top: 20px;
+}
+
+.clickable {
+  cursor: pointer;
 }
