@@ -43,21 +43,21 @@ const StepForm = (props) => {
         <div>
             <Form onSubmit={handleSubmit}>            
             <Form.Field>
-                <label htmlFor="name"><span style={{color: "#42008d"}}> Name </span></label>
+                <label htmlFor="name"> Name </label>
                 <input onChange={handleFieldChange} type="text"
                 id="name"
                 required="" autoFocus="" value={newStep.name} />
             </Form.Field>
 
             <Form.Field>
-                <label htmlFor="description"><span style={{color: "#42008d"}}> Description </span></label>
+                <label htmlFor="description"> Description </label>
                 <textarea onChange={handleFieldChange} type="textarea"
                 id="description"
                 required="" autoFocus="" value={newStep.description} />
             </Form.Field>
 
             <Form.Field>
-                <Button style={{'background-color': "#DB5878", color: 'white'}} type="submit">Submit</Button>
+                <Button style={{'background-color': "var(--main-accent-color)", color: 'var(--white)'}} type="submit">Submit</Button>
             </Form.Field>
 
             </Form>

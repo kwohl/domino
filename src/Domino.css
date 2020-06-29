@@ -88,3 +88,7 @@ li {
 .clickable {
   cursor: pointer;
 }
+
+.accent {
+  color: var(--main-accent-color);
+}

@@ -90,7 +90,7 @@ const StepEditForm = (props) => {
         </Form.Field>
         
         <Form.Field>
-          <Button style={{'background-color': "#DB5878", color: 'white'}} type="submit">Save Changes</Button>
+          <Button style={{'background-color': "var(--main-accent-color)", color: 'var(--white)'}} type="submit">Save Changes</Button>
         </Form.Field>
       </Form>
 
@@ -111,7 +111,7 @@ const StepEditForm = (props) => {
             </select>
             </Form.Field>
             <Form.Field>
-            <Button type="submit" style={{'background-color': "#DB5878", color: 'white'}}>Add</Button>
+            <Button type="submit" style={{'background-color': 'var(--main-accent-color)', color: 'var(--white)'}}>Add</Button>
             </Form.Field>
       </Form>
       </div>

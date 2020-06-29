@@ -2,7 +2,7 @@
   --main-bg-color: #42008d;
   --main-window-color: #5802bb;
   --main-accent-color: #ff7948;
-  --nav-color: #42008d; 
+  --nav-color: linear-gradient(360deg, var(--main-window-color) 30%, var(--main-accent-color) 100%); 
   --main-padding: 15px;
   --white: white;
   --box-shadow-color: black;

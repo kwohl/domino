@@ -1,8 +1,7 @@
 #navDiv {
     position: fixed;
     margin-top: 0;
-    /* background: linear-gradient(360deg, var(--main-window-color) 30%, var(--main-accent-color) 100%); */
-    background-color: var(--nav-color);
+    background: var(--nav-color);
     width: 200px;
     height: 100%;
     box-shadow: 5px 5px 20px var(--box-shadow-color);

@@ -74,7 +74,7 @@ const ListDetail = (props) => {
         {/* <p className="white">{list.description}</p> */}
         <div className="boards">
         <div className="kanban">
-          <p className="kanbanTitle"><strong><span style={{color: "#DB5878"}}>To Do</span></strong></p>
+          <p className="kanbanTitle"><strong><span className="accent">To Do</span></strong></p>
           
           <div className="board-content">
             {tasks.map(task => (
@@ -96,7 +96,7 @@ const ListDetail = (props) => {
           
         </div>
         <div className="kanban">
-          <p className="kanbanTitle"><strong><span style={{color: "#DB5878"}}>Complete</span></strong></p>
+          <p className="kanbanTitle"><strong><span className="accent">Complete</span></strong></p>
 
           <div className="board-content">
             {finishedTasks.map(task => (

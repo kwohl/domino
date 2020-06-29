@@ -18,7 +18,7 @@ const TaskCard = (props) => {
 
     const CompleteStepModal = (props) => (
         <Modal trigger={<Icon className="clickable" name="add" size='large'></Icon>}>
-            <Modal.Header><span style={{ color: "#42008d" }}>Add a Step</span></Modal.Header>
+            <Modal.Header>Add a Step</Modal.Header>
             <Modal.Content>
 
                 <StepForm {...props} taskId={props.task.id} getTasks={props.getTasks} />
@@ -29,7 +29,7 @@ const TaskCard = (props) => {
 
     const StepEditModal = (props) => (
         <Modal trigger={<Icon className="clickable" name="edit outline"></Icon>}>
-            <Modal.Header><span style={{ color: "#42008d" }}>Edit Step</span></Modal.Header>
+            <Modal.Header>Edit Step</Modal.Header>
             <Modal.Content>
 
                 <StepEdit {...props} stepId={props.stepId} getTasks={props.getTasks} />
