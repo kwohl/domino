@@ -32,6 +32,14 @@ const Settings = (props) => {
             document.documentElement.style.setProperty('--white', '#ffffff');
             document.documentElement.style.setProperty('--main-header-color', '#ffffff')
         }
+        if (theme === 'default') {
+            document.documentElement.style.setProperty('--main-bg-color', '#ffffff');
+            document.documentElement.style.setProperty('--main-window-color', '#f2f2f2');
+            document.documentElement.style.setProperty('--main-accent-color', '#ff695e');
+            document.documentElement.style.setProperty('--nav-color', '#3F3D56');
+            document.documentElement.style.setProperty('--white', '#ffffff');
+            document.documentElement.style.setProperty('--main-header-color', '#ff695e')
+        }
     }
 
     useEffect(() => {
@@ -76,6 +84,15 @@ const Settings = (props) => {
                         value='teal'
                         checked={theme === 'teal'}
                         onClick={() => setTheme('teal')}
+                    />
+                </Form.Field>
+                <Form.Field>
+                    <Radio
+                        label='Default'
+                        name='radioGroup'
+                        value='default'
+                        checked={theme === 'default'}
+                        onClick={() => setTheme('default')}
                     />
                 </Form.Field>
             </Form>
