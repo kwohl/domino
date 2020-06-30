@@ -21,7 +21,13 @@ const List = (props) => {
       <div>
           <div>
             {lists.map(list => (
-              <Link key={list.id} onClick={() => props.history.push(`/list/${list.id}`)}>{list.name}</Link>
+              <a 
+                key={list.id} 
+                onClick={() => props.history.push(`/list/${list.id}`)}
+                className="top-margin"
+              >  
+                <h4>{list.name}</h4>
+              </a>
             ))}
           </div>
       </div>

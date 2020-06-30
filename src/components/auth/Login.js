@@ -27,7 +27,7 @@ const Login = (props) => {
   };
 
   return (
-    <div className="pageContent" id="login">
+    <div className="pageContent formWidth">
       <h1 style={{ width: "1000px" }} className="page-header">Log In to Domino!</h1>
       <Form style={{ width: "600px" }} onSubmit={handleLogin}>
         <Form.Field>
@@ -56,7 +56,7 @@ const Login = (props) => {
         </Form.Field>
         <Form.Field>
           <Button 
-          style={{'background-color': "#DB5878", color: 'white'}}
+          style={{'background-color': "var(--main-accent-color)", color: "var(--white)"}}
           type="submit">Login</Button>
         </Form.Field>
       </Form>

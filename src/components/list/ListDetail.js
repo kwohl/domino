@@ -69,12 +69,15 @@ const ListDetail = (props) => {
     }, [props.listId])
     
     return (
-      <div className="pageContent">
+      <>
+      <div className="pageTools">
         <h1 className="page-header">{list.name}</h1>
-        {/* <p className="white">{list.description}</p> */}
+      </div>
+      
+      <div className="pageContent">
         <div className="boards">
         <div className="kanban">
-          <p className="kanbanTitle"><strong><span style={{color: "#DB5878"}}>To Do</span></strong></p>
+          <p className="kanbanTitle"><strong><span className="opacity">TO DO</span></strong></p>
           
           <div className="board-content">
             {tasks.map(task => (
@@ -96,7 +99,7 @@ const ListDetail = (props) => {
           
         </div>
         <div className="kanban">
-          <p className="kanbanTitle"><strong><span style={{color: "#DB5878"}}>Complete</span></strong></p>
+          <p className="kanbanTitle"><strong><span className="opacity">COMPLETE</span></strong></p>
 
           <div className="board-content">
             {finishedTasks.map(task => (
@@ -118,6 +121,7 @@ const ListDetail = (props) => {
         </div>
         </div>
       </div>
+      </>
     );
   };
   

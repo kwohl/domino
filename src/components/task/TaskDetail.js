@@ -57,7 +57,7 @@ const TaskDetail = (props) => {
     return (
         <div className="pageContent">
       <h1 className="page-header">{task.name}</h1>
-      <Form style={{ width: "600px" }} onSubmit={updateTask}>
+      <Form className="task-form" onSubmit={updateTask}>
         <Form.Field>
           <label htmlFor="name"><span className="form-label">Name</span></label>
           <input
@@ -93,7 +93,7 @@ const TaskDetail = (props) => {
         </Form.Field>
         
         <Form.Field>
-          <Button type="submit" style={{'background-color': "#DB5878", color: 'white'}}>Save Changes</Button>
+          <Button type="submit" style={{'background-color': "var(--main-accent-color)", color: 'var(--white)'}}>Save Changes</Button>
         </Form.Field>
       </Form>
         </div>

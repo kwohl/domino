@@ -90,7 +90,7 @@ const TaskForm = (props) => {
             </Form.Field>
 
             <Form.Field>
-                <Button type="submit" style={{'background-color': "#DB5878", color: 'white'}}>Submit</Button>
+                <Button type="submit" style={{'background-color': "var(--main-accent-color)", color: 'var(--white)'}}>Submit</Button>
             </Form.Field>
 
             </Form>
