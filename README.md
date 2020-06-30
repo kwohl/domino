@@ -33,9 +33,14 @@
   When a task is marked complete, this triggers the task to move from the "To Do" column to the "Complete" column, and the user will see a visible check mark indicating the task is complete. Any steps connected to the task that are still incomplete will also be marked complete, and the progress bar at the bottom of the task card will jump to full completion. 
   
   When a step is marked complete, the user will see a visible check mark indicating the step is complete, and the progress bar at the bottom of the task card will update.
+  
+  Users also have the ability to 'un-complete' any task or step by clicking the checked box to the left of the task/step name.
 
 ### Easily View Progress
   At the bottom of each task card that contains steps is a progress bar with a ratio indicating how many steps are complete out of the total number of steps in that task.
+  
+### Update Color Settings
+  Users currently have the option to toggle between four different color schemes while logged in. In version 2, 'Settings' will be added as a new endpoint in the Domino API, and users will be able to save settings through multiple sessions. 
 
 ## Technologies Used
   ### Front End
