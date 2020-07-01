@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import StepManager from "../../modules/StepManager";
 import TaskManager from "../../modules/TaskManager";
 import TaskStepManager from "../../modules/TaskStepManager";
-import { Form, Button, Select } from "semantic-ui-react"
+import { Form, Button } from "semantic-ui-react"
 
 const StepEditForm = (props) => {
     const [step, setStep] = useState({ id: "", name: "", description: "" })

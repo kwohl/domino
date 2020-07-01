@@ -20,14 +20,14 @@ export default {
         "body": JSON.stringify(newStep)
     }).then(response => response.json())
   },
-  // deleteStep(stepId) {
-  //   return fetch(`${baseUrl}/steps/${stepId}`, {
-  //       "method": "DELETE",
-  //       "headers": {
-  //           "Authorization": `Token ${sessionStorage.getItem("domino-token")}`
-  //       }
-  //   })
-  // },
+  deleteStep(stepId) {
+    return fetch(`${baseUrl}/steps/${stepId}`, {
+        "method": "DELETE",
+        "headers": {
+            "Authorization": `Token ${sessionStorage.getItem("domino-token")}`
+        }
+    })
+  },
   updateStep(updatedStep, stepId) {
     return fetch(`${baseUrl}/steps/${stepId}`, {
       "method": "PUT",

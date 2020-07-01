@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Nav.css";
 import { withRouter, Link } from "react-router-dom";
 import useSimpleAuth from "../auth/useSimpleAuth";

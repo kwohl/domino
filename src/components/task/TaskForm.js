@@ -11,8 +11,6 @@ const TaskForm = (props) => {
         const stateToChange = { ...newTask }
         stateToChange[evt.target.id] = evt.target.value
         setNewTask(stateToChange)
-
-        console.log(newTask.taskListId)
     }
 
     const handleSubmit = evt => {
@@ -90,7 +88,7 @@ const TaskForm = (props) => {
             </Form.Field>
 
             <Form.Field>
-                <Button type="submit" style={{'background-color': "var(--main-accent-color)", color: 'var(--white)'}}>Submit</Button>
+                <Button type="submit" style={{'backgroundColor': "var(--main-accent-color)", color: 'var(--white)'}}>Submit</Button>
             </Form.Field>
 
             </Form>

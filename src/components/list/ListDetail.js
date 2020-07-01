@@ -4,7 +4,6 @@ import TaskManager from "../../modules/TaskManager";
 import TaskCard from "../task/TaskCard";
 import StepManager from "../../modules/StepManager";
 import TaskStepManager from "../../modules/TaskStepManager";
-import { Progress } from 'semantic-ui-react'
 
 const ListDetail = (props) => {
     const [list, setList] = useState({ name: "", description: "" })
@@ -27,7 +26,6 @@ const ListDetail = (props) => {
           response.forEach(task => {
             if (task.is_complete === false) {
               incompleteTasks.push(task)
-              console.log("task not complete: ", task.name)
             } else {
               completeTasks.push(task)
             }
