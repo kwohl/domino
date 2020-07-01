@@ -21,5 +21,13 @@ export default {
         },
         "body": JSON.stringify(newTaskStep)
     }).then(response => response.json())
+  },
+  deleteTaskStep(taskStepId) {
+    return fetch(`${baseUrl}/tasksteps/${taskStepId}`, {
+        "method": "DELETE",
+        "headers": {
+            "Authorization": `Token ${sessionStorage.getItem("domino-token")}`
+        }
+    })
   }
 }
