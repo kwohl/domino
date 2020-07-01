@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import TaskStepManager from "../../modules/TaskStepManager";
 import StepManager from "../../modules/StepManager";
-import { Modal, Form, Button } from "semantic-ui-react"
+import { Form, Button } from "semantic-ui-react"
 
 const StepForm = (props) => {
     const [newStep, setNewStep] = useState({ name: "", description: "" })
@@ -57,7 +57,7 @@ const StepForm = (props) => {
             </Form.Field>
 
             <Form.Field>
-                <Button style={{'background-color': "var(--main-accent-color)", color: 'var(--white)'}} type="submit">Submit</Button>
+                <Button style={{'backgroundColor': "var(--main-accent-color)", color: 'var(--white)'}} type="submit">Submit</Button>
             </Form.Field>
 
             </Form>
