@@ -3,6 +3,7 @@ import ListManager from "../../modules/ListManager";
 import TaskManager from "../../modules/TaskManager";
 import TaskCard from "../task/TaskCard";
 import StepManager from "../../modules/StepManager";
+import TaskStepManager from "../../modules/TaskStepManager";
 import { Progress } from 'semantic-ui-react'
 
 const ListDetail = (props) => {
@@ -43,9 +44,9 @@ const ListDetail = (props) => {
         }
     }
 
-    const deleteStep = (stepId) => {
+    const deleteStep = (taskStepId) => {
       if (window.confirm("Would you like to remove this step?")) {
-        StepManager.deleteStep(stepId)
+        TaskStepManager.deleteTaskStep(taskStepId)
           .then(getTasks)
       }
     }

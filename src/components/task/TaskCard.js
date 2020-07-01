@@ -130,7 +130,7 @@ const TaskCard = (props) => {
                                         <Icon
                                             className="clickable"
                                             name="trash alternate outline"
-                                            onClick={() => props.deleteStep(taskStep.step.url.split("/")[4])}
+                                            onClick={() => props.deleteStep(taskStep.id)}
                                             style={{ display: taskStep.step.is_complete ? "none" : "" }}>
                                         </Icon>
                                     </div>
