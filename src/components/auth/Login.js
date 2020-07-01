@@ -56,7 +56,7 @@ const Login = (props) => {
         </Form.Field>
         <Form.Field>
           <Button 
-          style={{'background-color': "var(--main-accent-color)", color: "var(--white)"}}
+          style={{'backgroundColor': "var(--main-accent-color)", color: "var(--white)"}}
           type="submit">Login</Button>
         </Form.Field>
       </Form>

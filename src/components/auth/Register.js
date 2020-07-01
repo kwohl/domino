@@ -62,7 +62,7 @@ const Register = (props) => {
           />
         </Form.Field>
         <Form.Field>
-          <Button style={{'background-color': "var(--main-accent-color)", color: "var(--white)"}} type="submit">Register</Button>
+          <Button style={{'backgroundColor': "var(--main-accent-color)", color: "var(--white)"}} type="submit">Register</Button>
         </Form.Field>
       </Form>
     </div>
