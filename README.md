@@ -63,7 +63,7 @@
     Django
 
   ### Illustration
-    [Undraw.co](https://undraw.co/)
+   [Undraw.co](https://undraw.co/)
 
 ## Instructions for Installing Domino
   Before installing Domino, please visit the [Domino API](https://github.com/kwohl/domino-api) repo, and follow the instructions in the README to install and run Domino's Django REST API
