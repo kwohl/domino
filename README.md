@@ -17,7 +17,7 @@
   
   Tasks can be deleted upon confirmation from the user. Any associated steps will also be deleted unless they are connected to more than one task.
 
-![Add a Task](/src/media/addTask.JPG)
+<!-- ![Add a Task](/src/media/addTask.JPG) -->
 
 ### Create, Update, and Delete Steps
   By clicking an 'Add' affordance on an individual task card, users can add steps to tasks. Steps also have an optional description field.
@@ -26,12 +26,12 @@
   
   Steps can be deleted upon confirmation from the user.
 
-  ![Add a Step](/src/media/addStep.JPG)
+<!--  ![Add a Step](/src/media/addStep.JPG)  -->
 ### Connect Steps to Multiple Tasks
   If a user would like a step to be associated with more than one task, they can connect that step to another task by clicking an 'Edit' affordance next to the step. This enables users to see progress being made in multiple tasks simultaneously. 
 
-![Connect a Step](/src/media/stepEdit.JPG)
-![Connect a Step](/src/media/stepConnect.png)
+<!-- ![Connect a Step](/src/media/stepEdit.JPG)  -->
+<!-- ![Connect a Step](/src/media/stepConnect.png)  -->
 ### Mark Tasks and Steps Complete
   Tasks and steps can be marked complete. 
   
@@ -49,7 +49,7 @@
 ### Update Color Settings
   Users currently have the option to toggle between four different color schemes while logged in. In version 2, 'Settings' will be added as a new endpoint in the Domino API, and users will be able to save settings through multiple sessions. 
 
-![Settings](/src/media/settings.JPG)
+<!-- ![Settings](/src/media/settings.JPG)  -->
 ## Technologies Used
   ### Front End
     React.js
