@@ -8,6 +8,7 @@ const List = (props) => {
     const getLists = () => {
       ListManager.getAllLists()
         .then(response => {
+          response.sort((a, b) => (a.name > b.name) ? 1 : -1);
           setLists(response);
         })
     };
