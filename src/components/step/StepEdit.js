@@ -20,6 +20,7 @@ const StepEditForm = (props) => {
     const getTasks = () => {
       return TaskManager.getTasksByUser()
         .then(response => {
+          response.sort((a, b) => (a.name > b.name) ? 1 : -1);
           setTasks(response)})
     }
 
